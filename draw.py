@@ -1,13 +1,25 @@
 from display import *
 from matrix import *
 
+#def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
+
   # ====================
   # add the points for a rectagular prism whose 
   # upper-left corner is (x, y, z) with width, 
   # height and depth dimensions.
   # ====================
 def add_box( points, x, y, z, width, height, depth ):
-    pass
+    # face
+    add_edge(points, x, y, z, x + width, y, z)
+    add_edge(points, x + width, y, z, x + width, y + height, z)
+    add_edge(points, x, y, z, x, y + height, z)
+    add_edge(points, x, y + height, z, x + width, y + height, z)
+
+    # back face
+    add_edge(points, x, y, z, x + width, y, z + depth)
+    add_edge(points, x + width, y, z, x + width, y + height, z + depth)
+    add_edge(points, x, y, z, x, y + height, z + depth)
+    add_edge(points, x, y + height, z, x + width, y + height, z + depth)
 
   # ====================
   # Generates all the points along the surface

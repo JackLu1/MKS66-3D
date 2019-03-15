@@ -68,6 +68,7 @@ def parse_file( fname, edges, transform, screen, color ):
         if line == 'box':
             args = [float(x) for x in args]
             print args
+            add_box( edges, args[0], args[1], args[2], args[3], args[4], args[5] )
 
         if line == 'sphere':
             pass
@@ -136,5 +137,8 @@ def parse_file( fname, edges, transform, screen, color ):
                 display(screen)
             else:
                 save_extension(screen, args[0])
+
+        elif line == 'quit':
+            break
 
         c+= 1
