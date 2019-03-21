@@ -75,7 +75,8 @@ def parse_file( fname, edges, transform, screen, color ):
             add_sphere( edges, args[0], args[1], args[2], args[3], step )
 
         if line == 'torus':
-            pass
+            args = [float(x) for x in args]
+            add_torus( edges, args[0], args[1], args[2], args[3], args[4], step )
 
         if line == 'clear':
             edges = new_matrix()
